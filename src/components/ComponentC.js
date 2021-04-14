@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
-import ComponentE from './ComponentE';
-
-class ComponentC extends Component {
-    constructor(props) {
-        super(props);
-
-    }
-    render() {
-        return (
-            <ComponentE/>
-        );
-    }
+import React,{useContext} from 'react';
+import {UserContext,ChannelContext} from '../App'
+function ComponentC(props) {
+    const user = useContext(UserContext)
+    const channel = useContext(ChannelContext)
+    return (
+        <div>
+            {user} - {channel}
+        </div> //we cn easily consume value with the help of useContext hook
+    );
 }
-
-ComponentC.propTypes = {
-
-};
 
 export default ComponentC;

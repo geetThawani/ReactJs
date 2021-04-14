@@ -1,23 +1,16 @@
-import React, { Component } from 'react';
-import ComponentF from './ComponentF';
-import { UserContext } from './UserContext';
+import React,{useContext} from 'react'
+import {UserContext,ChannelContext} from '../App'
 
-class ComponentE extends Component {
-    constructor(props) {
-        super(props);
-
-    }
-    static contextType= UserContext
-    render() {
-       
-        return (
-            <div>
-                Componet E {this.context}
-                <ComponentF/>
-            </div>
-        );
-    }
+function ComponentE(props) {
+    
+    const user = useContext(UserContext)
+    const channel = useContext(ChannelContext)
+    
+    return (
+        <div>
+            {user} - {channel}
+        </div> //we cn easily consume value with the help of useContext hook
+    )
 }
-
 
 export default ComponentE;
